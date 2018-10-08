@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800|Quicksand:400,500,700");
+
+:root {
+  --main-color: #4267b2;
+  --secondary-color: white;
+  --main-text-color: white;
+  --message-color: white;
+  --secondary-text-color: black;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 400;
+  color: #3e5869;
+  background-color: #f2f2f2;
+}
+
+#root {
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+}
+
+*:focus {
+  outline: none;
+}
+
+.nbarformat {
+  display: flex;
+  color: var(--secondary-color);
+  background: var(--main-color);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 10px 0;
+  text-align: left;
+  font-weight: bold;
+  font-size: 40px;
+  position: relative;
+  box-shadow: 10px;
+}
+
+.logoformat:nth-child(1) {
+  color: rgb(116, 221, 232);
+  font-weight: normal;
+}
+
+.logoformat:nth-child(2) {
+  color: white;
+  font-weight: normal;
+}
+
+.nbuttonformat {
+  background: rgba(0, 0, 0, 0);
+  font-weight: normal;
+  border: none;
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  font-size: 26px;
+  color: #0d1524;
+  padding: 0px 14px;
+  margin: 0px;
+}
+
+.trim {
+  padding: 0px;
+  margin: 0px;
+}
+
+.xbubbledivformat:nth-child(n) {
+  border: none;
+  background-color: #0084ff;
+  display: inline-block;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 5px 10px 0px 15px;
+  color: white;
+  font-weight: bold;
+  animation-name: Xfadebox;
+  animation-duration: 0.5s;
+}
+
+.ububbledivformat:nth-child(n) {
+  border: none;
+  background-color: #0084ff;
+  display: inline-block;
+  float: right;
+  border-radius: 15px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  margin: 5px 10px 0px calc(100% - 200px);
+  animation-name: Ufadebox;
+  animation-duration: 0.5s;
+}
+
+@keyframes Ufadebox {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: #0084ff;
+  }
+}
+
+@keyframes Xfadebox {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: #0084ff;
+  }
+}
+
+.iwindowformat {
+  margin: 0px 0px 0px 0px;
+  padding: 15px 10px 10px 10px;
+  height: calc(100% - 150px);
+  overflow-y: scroll;
+  background-color: #f2f2f2;
+}
+
+.tinput {
+  border: solid #4267b2;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 0px 0px 0px 10px;
+  width: calc(100% - 50px);
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  overflow: hidden;
+  color: darkslategray;
+}
+
+.tbutton {
+  background-color: slategray;
+  border: none;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  color: whitesmoke;
+  font-size: 20px;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 8px 10px 0px 10px;
+  cursor: pointer;
+}
+
+.BBubble {
+  display: inline-block;
+  border-radius: 10px;
+  margin: 0px;
+}
+
+.BBubblebutton {
+  border: 1px solid white;
+  background-color: slategray;
+  border-radius: 10px;
+  color: white;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  display: inline;
+  margin: 5px;
+  animation-name: XXfadebox;
+  animation-duration: 2s;
+}
+
+@keyframes XXfadebox {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+  }
+  to {
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.contact {
+  display: block;
+  font-size: 4em;
+  padding: 20px;
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+/* .siteref {
+} */
+
+.inputformat {
+  background-color: #f2f2f2;
+}
+
+.siteref a {
+  font-size: 1.8em;
+  color: #4267b2;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.contrastset {
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 100%;
+}
+
+.copybar {
+  background-color: #4267b2;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 1em;
+  padding: 10px;
+  position: fixed;
+  bottom: 0px;
+  display: block;
+  margin: 0px;
+  width: 100%;
+}
+
+.disableov {
+  overflow-y: hidden;
+}
