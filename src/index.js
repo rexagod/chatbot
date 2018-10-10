@@ -8,17 +8,7 @@ class XNBT extends React.Component {
     super();
     this.state = {
       replaceIWindow: false,
-      xmessagelist: [
-        // [],
-        // [],
-        // [],
-        // [],
-        // [],
-        // [],
-        // [],
-        // [],
-        // ["Thanks for your time " + sessionStorage.getItem("firstName") + "!"]
-      ],
+      xmessagelist: [],
       cursorvalue: "",
       qcount: 1,
       sId: 0,
@@ -31,9 +21,9 @@ class XNBT extends React.Component {
     };
   }
 
-    componentWillMount = () => {
-      this.handleXMlist();
-    };
+  componentWillMount = () => {
+    this.handleXMlist();
+  };
 
   componentDidMount = () => {
     this.fetchAPIs();
@@ -152,10 +142,12 @@ class XNBT extends React.Component {
 
   handleXMlist() {
     let xmessagelist = this.state.xmessagelist;
-    for (var p = 0; p < 8; p++) {
+    for (var p = 0; p < 8; p++) {     //needs to be dynamic!
       xmessagelist.push([]);
     }
-    xmessagelist.push(["Thanks for your time " + sessionStorage.getItem("firstName") + "!"]);
+    xmessagelist.push([
+      "Thanks for your time " + sessionStorage.getItem("firstName") + "!"
+    ]);
     this.setState({ xmessagelist: xmessagelist });
     console.log("xmessages: ", this.state.xmessagelist);
   }
@@ -225,6 +217,7 @@ class XNBT extends React.Component {
                 .then(res => res.json())
                 .then(data => {
                   console.log("Questions: ", data);
+                  console.log(data.data.survey.questions.length);
                   sessionStorage.setItem("qdata", JSON.stringify(data));
                   this.setState({ qcount: data.data.survey.questions[0].id });
                   let xmessagelist = this.state.xmessagelist;
@@ -390,9 +383,8 @@ class IWindow extends React.Component {
           </React.Fragment>
         </div>
       );
-    }
-    else {
-	    return null
+    } else {
+      return null;
     }
   }
 }
