@@ -21,9 +21,9 @@ class XNBT extends React.Component {
     };
   }
 
-  componentWillMount = () => {
-    this.handleXMlist();
-  };
+  // componentWillMount = () => {
+  //   this.handleXMlist();
+  // };
 
   componentDidMount = () => {
     this.fetchAPIs();
@@ -48,7 +48,7 @@ class XNBT extends React.Component {
           e.target.value === data.data.survey.questions[i].answers[j].answer
         ) {
           ans_id = data.data.survey.questions[i].answers[j].id;
-          console.log(ans_id);
+        //  console.log(ans_id);
         }
       }
     }
@@ -74,9 +74,9 @@ class XNBT extends React.Component {
     )
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+      //  console.log(data);
       })
-      .catch(error => console.log(error));
+    //  .catch(error => console.log(error));
 
     e.preventDefault();
     this.setState({ qcount: this.state.qcount + 1 });
@@ -118,9 +118,9 @@ class XNBT extends React.Component {
         )
           .then(res => res.json())
           .then(data => {
-            console.log(data);
+           // console.log(data);
           })
-          .catch(error => console.log(error));
+        //  .catch(error => console.log(error));
       }
 
       this.setState({ ans_index: this.state.ans_index + 1 });
@@ -140,19 +140,19 @@ class XNBT extends React.Component {
     this.setState({ replaceIWindow: !this.state.replaceIWindow });
   };
 
-  handleXMlist() {
+  handleXMlist = (len) => {
     let xmessagelist = this.state.xmessagelist;
-    for (var p = 0; p < 8; p++) {     //needs to be dynamic!
+    for (var p = 0; p < len; p++) {
       xmessagelist.push([]);
     }
     xmessagelist.push([
       "Thanks for your time " + sessionStorage.getItem("firstName") + "!"
     ]);
     this.setState({ xmessagelist: xmessagelist });
-    console.log("xmessages: ", this.state.xmessagelist);
+  //  console.log("xmessages: ", this.state.xmessagelist);
   }
 
-  fetchAPIs() {
+  fetchAPIs() { //add hXl here
     if (sessionStorage.getItem("firstName")) {
       fetch("http://dev.xane.ai/auths/linkedin", {
         method: "POST",
@@ -172,7 +172,7 @@ class XNBT extends React.Component {
       })
         .then(res => res.json())
         .then(data => {
-          console.log("Token: ", data.data.session.token);
+        //  console.log("Token: ", data.data.session.token);
           sessionStorage.setItem("token", data.data.session.token);
           fetch("http://dev.xane.ai/surveys/active?", {
             method: "GET",
@@ -184,7 +184,7 @@ class XNBT extends React.Component {
           })
             .then(res => res.json())
             .then(data => {
-              console.log("Answers: ", data);
+            //  console.log("Answers: ", data);
               sessionStorage.setItem("adata", JSON.stringify(data));
               for (
                 var x = 0;
@@ -201,7 +201,7 @@ class XNBT extends React.Component {
                 umessagelist.push(this.state.answers[t]);
                 continueShow.push(true);
               }
-              console.log(this.state.answers);
+            //  console.log(this.state.answers);
               this.setState({ sId: data.data.surveys[0].id });
               fetch(
                 "http://dev.xane.ai/surveys/".concat(data.data.surveys[0].id),
@@ -216,8 +216,9 @@ class XNBT extends React.Component {
               )
                 .then(res => res.json())
                 .then(data => {
-                  console.log("Questions: ", data);
-                  console.log(data.data.survey.questions.length);
+                  // console.log("Questions: ", data);
+                  // console.log(data.data.survey.questions.length);
+                  this.handleXMlist(data.data.survey.questions.length);
                   sessionStorage.setItem("qdata", JSON.stringify(data));
                   this.setState({ qcount: data.data.survey.questions[0].id });
                   let xmessagelist = this.state.xmessagelist;
@@ -261,9 +262,9 @@ class XNBT extends React.Component {
                   this.setState({ valarr: valarr });
                   this.setState({ boolarr: boolarr });
                 })
-                .catch(error => console.log(error));
+              //  .catch(error => console.log(error));
             })
-            .catch(error => console.log(error));
+           // .catch(error => console.log(error));
         });
     }
   }
