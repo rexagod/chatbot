@@ -1,14 +1,15 @@
 {
-  "name": "bot",
+  "name": "git-react-bot",
+  "description": "",
+  "homepage": "https://stackblitz.com/edit/git-react-bot",
+  "dependencies": {
+    "react": "16.4.2",
+    "react-dom": "16.4.2",
+    "react-scripts": "1.0.10",
+    "babel": "6.23.0"
+  },
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-linkedin-sdk": "^1.0.10",
-    "react-script-tag": "^1.1.2",
-    "react-scripts": "1.1.4"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
