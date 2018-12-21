@@ -5,6 +5,42 @@ import FacebookLogin from 'react-facebook-login';
 //import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import "./login.css";
 import config from './config.json';
+import Welcome from 'react-welcome-page';
+
+
+const Greeter=(
+  <Welcome
+      loopDuration={3300}
+      data={
+          [
+            {
+              //"backgroundColor": "rgb(20, 20, 20)",
+              "textColor": "#4245f4",
+              "text": "Hi",
+              "image": require('./image_path/1.png'),
+              "imageAnimation": "rotateIn",
+              "textAnimation":"bounceInDown"
+            },
+            {
+              //"backgroundColor": "rgb(20, 20, 20)",
+              "textColor": "#4245f4",
+              "text": "Welcome to XaneBot",
+              "imageAnimation": "slideInDown",
+              "textAnimation": "fadeInDownBig",
+              "image": require('./image_path/2.png')
+            },
+            {
+            //  "backgroundColor": "rgb(20, 20, 20)",
+              "textColor": "#4245f4",
+              "text": "A chatbot for all your needs",
+              "imageAnimation": "rotateIn",
+              "textAnimation": "fadeInDownBig",
+              "image": require('./image_path/3.png')
+            }
+          ]}
+  />
+);
+
 
 class LoginUtils extends React.Component{
 
@@ -21,7 +57,7 @@ class LoginUtils extends React.Component{
     window.location.reload();
   }
   onFailure = (error) => {
-      alert(error);
+      //alert(error);
     };
   responseLinkedin = response => {
     sessionStorage.setItem("firstName", response.firstName);
@@ -90,8 +126,9 @@ class Login extends React.Component {
   render() {
     return (
       <React.Fragment>
+        {Greeter}
         <center className="shiftdown">
-          <img src="http://dev.web.xane.ai/34a11248aa0afc617945aeb3af8b0da2.png" alt="Xane.ai"/>
+          <img src="http://dev.web.xane.ai/34a11248aa0afc617945aeb3af8b0da2.png" style={{"width":300,"height":100}} alt="Xane.ai"/>
           <br />
           <br />
           <br />
