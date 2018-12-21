@@ -19,7 +19,7 @@ const Greeter=(
               "text": "Hi",
               "image": require('./image_path/1.png'),
               "imageAnimation": "rotateIn",
-              "textAnimation":"bounceInDown",
+              "textAnimation":"bounceInDown"
             },
             {
               //"backgroundColor": "rgb(20, 20, 20)",
@@ -27,7 +27,7 @@ const Greeter=(
               "text": "Welcome to XaneBot",
               "imageAnimation": "slideInDown",
               "textAnimation": "fadeInDownBig",
-              "image": require('./image_path/2.png'),
+              "image": require('./image_path/2.png')
             },
             {
             //  "backgroundColor": "rgb(20, 20, 20)",
@@ -35,7 +35,7 @@ const Greeter=(
               "text": "A chatbot for all your needs",
               "imageAnimation": "rotateIn",
               "textAnimation": "fadeInDownBig",
-              "image": require('./image_path/3.png'),
+              "image": require('./image_path/3.png')
             }
           ]}
   />
