@@ -57,7 +57,7 @@ class LoginUtils extends React.Component{
     window.location.reload();
   }
   onFailure = (error) => {
-      alert(error);
+      //alert(error);
     };
   responseLinkedin = response => {
     sessionStorage.setItem("firstName", response.firstName);
