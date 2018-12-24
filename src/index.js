@@ -54,7 +54,7 @@ class XNBT extends React.Component {
     }
 
     fetch(
-      "http://dev.xane.ai/surveys/".concat(this.state.sId).concat("/answers"),
+      "https://cors-anywhere.herokuapp.com/http://dev.xane.ai/surveys/".concat(this.state.sId).concat("/answers"),
       {
         method: "POST",
         mode: "cors",
@@ -96,7 +96,7 @@ class XNBT extends React.Component {
     if (e.keyCode === 13) {
       if (e.target.value) {
         fetch(
-          "http://dev.xane.ai/surveys/"
+          "https://cors-anywhere.herokuapp.com/http://dev.xane.ai/surveys/"
             .concat(this.state.sId)
             .concat("/answers"),
           {
@@ -149,12 +149,12 @@ class XNBT extends React.Component {
       "Thanks for your time " + sessionStorage.getItem("firstName") + "!"
     ]);
     this.setState({ xmessagelist: xmessagelist });
-  //  console.log("xmessages: ", this.state.xmessagelist);
+  //  console.log("https://cors-anywhere.herokuapp.com/xmessages: ", this.state.xmessagelist);
   }
 
   fetchAPIs() { //add hXl here
     if (sessionStorage.getItem("firstName")) {
-      fetch("http://dev.xane.ai/auths/linkedin", {
+      fetch("https://cors-anywhere.herokuapp.com/http://dev.xane.ai/auths/linkedin", {
         method: "POST",
         mode: "cors",
         credentials: "omit",
@@ -174,7 +174,7 @@ class XNBT extends React.Component {
         .then(data => {
         //  console.log("Token: ", data.data.session.token);
           sessionStorage.setItem("token", data.data.session.token);
-          fetch("http://dev.xane.ai/surveys/active?", {
+          fetch("https://cors-anywhere.herokuapp.com/http://dev.xane.ai/surveys/active?", {
             method: "GET",
             headers: {
               "X-Auth": sessionStorage.getItem("token"),
@@ -204,7 +204,7 @@ class XNBT extends React.Component {
             //  console.log(this.state.answers);
               this.setState({ sId: data.data.surveys[0].id });
               fetch(
-                "http://dev.xane.ai/surveys/".concat(data.data.surveys[0].id),
+                "https://cors-anywhere.herokuapp.com/http://dev.xane.ai/surveys/".concat(data.data.surveys[0].id),
                 {
                   method: "GET",
                   headers: {
