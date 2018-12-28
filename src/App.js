@@ -56,7 +56,7 @@ class XNBT extends React.Component {
     console.log("logout success");
   };
 
-  
+
   componentDidUpdate(){
     if (sessionStorage.getItem("qdata")) {
       if (!this.state.replaceIWindow) {

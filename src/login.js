@@ -5,12 +5,12 @@ import FacebookLogin from 'react-facebook-login';
 //import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import "./login.css";
 import config from './config.json';
-import Welcome from 'react-welcome-page';
+import Welcome from './welcome-page/Welcome';
 
 
 export const Greeter=(
   <Welcome
-      loopDuration={2000}
+      loopDuration={2300}
       data={
           [
             {
@@ -128,7 +128,7 @@ class Login extends React.Component {
     return (
       <React.Fragment>
         <center className="shiftdown">
-          <img src="http://dev.web.xane.ai/34a11248aa0afc617945aeb3af8b0da2.png" style={{"width":300,"height":100}} alt="Xane.ai"/>
+          <img src="http://wp.xane.ai/wp-content/uploads/2018/09/Xane-Logo.png" style={{"width":300,"height":100}} alt="Xane.ai"/>
           <br />
           <br />
           <br />
