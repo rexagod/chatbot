@@ -10,7 +10,7 @@ import Welcome from 'react-welcome-page';
 
 export const Greeter=(
   <Welcome
-      loopDuration={1300}
+      loopDuration={2000}
       data={
           [
             {
