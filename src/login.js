@@ -5,12 +5,12 @@ import FacebookLogin from 'react-facebook-login';
 //import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import "./login.css";
 import config from './config.json';
-import Welcome from 'react-welcome-page';
+import Welcome from './welcome-page/Welcome';
 
 
-const Greeter=(
+export const Greeter=(
   <Welcome
-      loopDuration={3300}
+      loopDuration={2300}
       data={
           [
             {
@@ -44,18 +44,6 @@ const Greeter=(
 
 class LoginUtils extends React.Component{
 
-  constructor(){
-    super();
-    this.state={ isAuthenticated:false };//Authentication is not yet functional. The state can be passed on to index.js
-  }
-  logout=() => {
-    this.setState({ isAuthenticated:false });
-    window.location.reload();
-  }
-  login=() => {
-    this.setState({ isAuthenticated:true });
-    window.location.reload();
-  }
   onFailure = (error) => {
       //alert(error);
     };
@@ -65,7 +53,7 @@ class LoginUtils extends React.Component{
     sessionStorage.setItem("email", response.emailAddress);
     sessionStorage.setItem("companyId", 8);
     //console.log(sessionStorage.getItem("firstName"));
-    this.login();
+    this.props.login();
     };
 
   responseGoogle= response => {
@@ -74,11 +62,19 @@ class LoginUtils extends React.Component{
     sessionStorage.setItem("email",response.getBasicProfile().getEmail());
     sessionStorage.setItem("companyId", 8);
     //console.log(sessionStorage.getItem("firstName"));
-    this.login();
+    this.props.login();
   };
 
   facebookResponse=response => {
     console.log(response);
+    if(response.expiresIn<=0)
+      console.log("Error in login");
+    sessionStorage.setItem("firstName", response.name.split(' ')[0]);
+    console.log(sessionStorage.getItem("firstName"));
+    sessionStorage.setItem("lastName", response.name.split(' ')[1]);
+    sessionStorage.setItem("email",response.email);
+    sessionStorage.setItem("companyId",8);
+    this.props.login();
   };
 
   render(){
@@ -123,17 +119,21 @@ class LoginUtils extends React.Component{
 };
 
 class Login extends React.Component {
+
+  login=()=>{
+    this.props.login();
+    //window.location.reload();
+  }
   render() {
     return (
       <React.Fragment>
-        {Greeter}
         <center className="shiftdown">
-          <img src="http://dev.web.xane.ai/34a11248aa0afc617945aeb3af8b0da2.png" style={{"width":300,"height":100}} alt="Xane.ai"/>
+          <img src="http://wp.xane.ai/wp-content/uploads/2018/09/Xane-Logo.png" style={{"width":300,"height":100}} alt="Xane.ai"/>
           <br />
           <br />
           <br />
           <br />
-          <LoginUtils />
+          <LoginUtils login={this.login} />
         </center>
       </React.Fragment>
     );

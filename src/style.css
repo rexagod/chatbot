@@ -22,11 +22,12 @@ body {
 #root {
   height: 100%;
 }
-
 .app {
   height: 100%;
 }
-
+#logout{
+  float:right;
+}
 *:focus {
   outline: none;
 }
@@ -65,6 +66,18 @@ body {
   font-size: 26px;
   color: #0d1524;
   padding: 0px 14px;
+  margin: 0px;
+}
+.lbuttonformat{
+  background: rgba(0, 0, 0, 0);
+  font-weight: normal;
+  border: dashed;
+  position: absolute;
+  right: 85px;
+  top: 10px;
+  font-size: 26px;
+  color: #0d1524;
+  padding: 2px 10px;
   margin: 0px;
 }
 
