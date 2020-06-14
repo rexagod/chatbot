@@ -36,6 +36,14 @@ export const Greeter=(
               "imageAnimation": "rotateIn",
               "textAnimation": "fadeInDownBig",
               "image": require('./image_path/3.png')
+            },
+            {
+              //  "backgroundColor": "rgb(20, 20, 20)",
+              "textColor": "#4245f4",
+              "text": "Loading............",
+              "imageAnimation": "rotateIn",
+              "textAnimation": "fadeInDownBig",
+              "image": require('./image_path/4.png')
             }
           ]}
   />
@@ -128,7 +136,7 @@ class Login extends React.Component {
     return (
       <React.Fragment>
         <center className="shiftdown">
-          <img src="http://wp.xane.ai/wp-content/uploads/2018/09/Xane-Logo.png" style={{"width":300,"height":100}} alt="Xane.ai"/>
+          <img src="../images/logo.png" style={{"width":300,"height":100}} alt="Xane.ai"/>
           <br />
           <br />
           <br />
